@@ -1,0 +1,34 @@
+docker run -d -it --name ex-1.4 ubuntu
+570f1a60371aa45062cc7373f206bc3256c3ed4c81f0ea47c6884e749f26e321
+[a206720289:~/devops-with-docker]$ docker ps 
+CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS        PORTS     NAMES
+570f1a60371a   ubuntu    "/bin/bash"   3 seconds ago   Up 1 second             ex-1.4
+
+docker exec -it ex-1.4 /bin/bash 
+root@570f1a60371a:/# apt update; apt install -y curl; 
+Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]              
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                
+Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [109 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+...
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+
+ 
+[a206720289:~/devops-with-docker]$ docker exec -it ex-1.4 sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+
+
+Input website:
+helsinki.fi
+Searching..
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.22.1</center>
+</body>
+</html>
+Input website:

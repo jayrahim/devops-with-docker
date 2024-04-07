@@ -1,0 +1,15 @@
+# Dockerfile
+FROM devopsdockeruh/simple-web-service:alpine
+
+CMD server
+
+# Output 
+NXT-C02DL5L8MD6R-MAC:devops-with-docker $ docker run -it web-server 
+ÄGIN-debugÅ ÄWARNINGÅ Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+ÄGIN-debugÅ ÄWARNINGÅ Running in "debug" mode. Switch to "release" mode in production.
+ - using env: export GIN_MODE=release
+ - using code: gin.SetMode(gin.ReleaseMode)
+
+ÄGIN-debugÅ GET    /*path                    --> server.Start.func1 (3 handlers)
+ÄGIN-debugÅ Listening and serving HTTP on :8080
